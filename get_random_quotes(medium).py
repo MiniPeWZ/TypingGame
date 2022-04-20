@@ -1,37 +1,36 @@
-# TODO: Get random quotes from https://github.com/lukePeavey/quotable. It will be used in the medium mode of the game
+
 
 # imports
 import requests
 
 
-# function block
 def get_random_quotes() -> list:
     """
-    This function uses requests module to get random quotes from the API
-    :return: json, which contains all quotes
+    Denne funksjonen bruker requests modulen for å hente en tilfeldig quote fra API
+    :return: json, som inneholder alle quotes
     """
-    # params for the request
+    # parametere for request
     parameters = {
         "page": 1,
         "limit": 150
     }
 
-    # make a GET request
+    # gjør en GET request
     response = requests.get(url="https://api.quotable.io/quotes", params=parameters)
     response.raise_for_status()
 
-    # return data
+    # returner data
     data = [quote["content"] for quote in response.json()["results"]]
     return data
 
 
 def write_data_to_medium_mode_txt(data: list) -> None:
     """
-    This function takes data that we got from the random quotes API and writes it to medium_mode.txt
-    :param data: random quotes that we got from the API call
+    Denne funksjonen tar dataen fra API-et of skriver det til medium_mode.txt
+    :param data: tilfeldige quotes som vi fikk fra API kallet
     :return: None
     """
-    # open file to write data into it
+    # åpne filen for å skrive data i den
     with open("data/medium_mode.txt", "a", encoding="utf-8") as file:
         for quote in data:
             file.write(f"{quote}\n")

@@ -78,7 +78,8 @@ class TypingTest(Tk):
                                       command=self.easy)
         self.easy_button.grid(column=0, row=3, padx=10, pady=10)
 
-        self.medium_button = ttk.Button(self.global_frame, text="Medium", padding=10,
+        self.medium_button = ttk.Button(self.global_frame, text="Medium"
+                                                                "(Quotes)", padding=10,
                                         style="FountainBlueButton.TButton",
                                         command=self.medium)
         self.medium_button.grid(column=2, row=3, padx=10, pady=10)
