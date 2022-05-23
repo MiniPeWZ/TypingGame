@@ -30,8 +30,8 @@ class TypingTest(Tk):
         self.medium_label_style = None
 
         # resultat variabler
-        self.start_time = 0
-        self.total_time = 0
+        self.start_time =0
+        self.total_time =0
         self.accuracy = 0
         self.wpm = 0
 
@@ -41,31 +41,34 @@ class TypingTest(Tk):
         self.iconbitmap("assets/icons/icon.ico")
 
         # styles for programmet
+
         font_for_the_buttons = Font(family="Arial", size=14)
         self.button_style = ttk.Style()
         self.button_style.theme_use("default")
         self.button_style.configure("FountainBlueButton.TButton",
-                                    background="#FAE3D9",
-                                    foreground="#61C0BF",
-                                    font=font_for_the_buttons,
-                                    width=15,
-                                    borderwidth=1,
-                                    focusthickness=3)
+        background="#686868",
+        foreground="#FFC300",
+        font=font_for_the_buttons,
+        width=15,
+        borderwidth=1,
+        focusthickness=3)
 
-        self.frame_style = ttk.Style()
-        self.frame_style.configure("BlueFrame.TFrame", background="#FAE3D9")
+        self.frame_style=ttk.Style()
+        self.frame_style.configure("BlueFrame.TFrame", background="#313131")
 
-        self.label_style = ttk.Style()
-        self.label_style.configure("DarkLabel.TLabel", background="#FAE3D9", foreground="#61C0BF")
+        self.label_style=ttk.Style()
+        self.label_style.configure("DarkLabel.TLabel", background="#313131", foreground="#FFC300")
 
         # global frame for app
         self.global_frame = ttk.Frame(self, style="BlueFrame.TFrame")
         self.global_frame.grid(column=0, row=0)
 
+
         # etiketter
+
         font_for_the_title_label = Font(family="Arial", size=30, weight="bold")
         self.title_label = ttk.Label(self.global_frame,
-                                     text="Test Your Typing", font=font_for_the_title_label, style="DarkLabel.TLabel")
+                                     text="GorillaType", font=font_for_the_title_label, style="DarkLabel.TLabel")
         self.title_label.grid(column=1, row=0, padx=10, pady=10)
 
         font_for_the_diff_label = Font(family="Arial", size=18)
@@ -74,7 +77,7 @@ class TypingTest(Tk):
         self.diff_label.grid(column=1, row=2, padx=30, pady=30)
 
         # knapper
-        self.easy_button = ttk.Button(self.global_frame, text="Easy", padding=10, style="FountainBlueButton.TButton",
+        self.easy_button=ttk.Button(self.global_frame, text="Easy", padding=10, style="FountainBlueButton.TButton",
                                       command=self.easy)
         self.easy_button.grid(column=0, row=3, padx=10, pady=10)
 
@@ -84,14 +87,13 @@ class TypingTest(Tk):
                                         command=self.medium)
         self.medium_button.grid(column=2, row=3, padx=10, pady=10)
 
-        # mainloop
+        #mainloop
         self.mainloop()
 
     def easy(self):
         """
         Denne metoden implementerer easy mode for Typing Test Appen.
-       Åpneri nytt Tkinter vindu.
-        :return: nothing
+        Åpner i nytt Tkinter vindu.
         """
         # index variabel for identifying the window
         index = 0
@@ -107,40 +109,41 @@ class TypingTest(Tk):
         self.easy_window.resizable(width=True, height=True)
         self.easy_window.iconbitmap("assets/icons/icon.ico")
 
-        # styles
-        font_for_the_buttons = Font(family="Arial", size=14, weight="bold")
+        #styles
+        font_for_the_buttons=Font(family="Arial", size=14, weight="bold")
         buttons_style = ttk.Style()
         buttons_style.theme_use("default")
         buttons_style.configure("Buttons.TButton",
-                                background="#F9ED69",
-                                foreground="#F08A5D",
+                                background="#686868",
+                                foreground="#FFC300",
                                 font=font_for_the_buttons,
                                 width=10,
                                 borderwidth=1,
                                 focusthickness=3, )
 
-        mainframe_style = ttk.Style()
-        mainframe_style.configure("MainFrame.TFrame", background="#F9ED69")
+        mainframe_style=ttk.Style()
+        mainframe_style.configure("MainFrame.TFrame", background="#313131")
 
         self.easy_label_style = ttk.Style()
-        self.easy_label_style.configure("Labels.TLabel", background="#F9ED69", foreground="#F08A5D", font=("Arial", 14))
+        self.easy_label_style.configure("Labels.TLabel", background="#313131", foreground="#FFC300", font=("Arial", 14))
 
         # Lag en main frame for viduet
+
         self.easy_mainframe = ttk.Frame(self.easy_window, style="MainFrame.TFrame")
         self.easy_mainframe.grid(column=0, row=0)
 
         # knapper
-        start_button = ttk.Button(self.easy_mainframe, text="Start", padding=1, command=lambda: self.main(index),
+        start_button=ttk.Button(self.easy_mainframe, text="Start", padding=1, command=lambda: self.main(index),
                                   style="Buttons.TButton")
         start_button.grid(column=0, row=3, padx=10, pady=10)
 
-        exit_button = ttk.Button(self.easy_mainframe, text="Exit", padding=1, command=lambda: self.close_window(index),
+        exit_button=ttk.Button(self.easy_mainframe, text="Exit", padding=1, command=lambda: self.close_window(index),
                                  style="Buttons.TButton")
         exit_button.grid(column=1, row=3, padx=10, pady=10)
 
         # entries
-        font_for_the_entry = Font(family="Arial", size=14)
-        self.easy_text_entry = ttk.Entry(self.easy_mainframe, width=60, font=font_for_the_entry)
+        font_for_the_entry=Font(family="Arial", size=14)
+        self.easy_text_entry=ttk.Entry(self.easy_mainframe, width=60, font=font_for_the_entry)
         self.easy_text_entry.grid(column=0, row=1, padx=20, pady=20, columnspan=2)
 
         # etiketter
@@ -149,16 +152,19 @@ class TypingTest(Tk):
                                           style="Labels.TLabel")
         self.easy_rules_label.grid(column=0, row=2, padx=10, pady=10, columnspan=2)
 
-        self.easy_sentence_label = ttk.Label(self.easy_mainframe, text="Your Test Sentence Will be Here",
+        self.easy_sentence_label = ttk.Label(self.easy_mainframe, text="GorillaType",
                                              style="Labels.TLabel")
         self.easy_sentence_label.grid(column=0, row=0, padx=10, pady=20, columnspan=2)
 
     def medium(self):
         """
         Dette implementerer medium mode som åpnes i et nytt tkinter vindu.
+
         """
         # index variable for identifying the window
-        index = 1
+
+
+        index= 1
 
         # hide the main window, till the TopLevel is not closed
         self.iconify()
@@ -176,18 +182,18 @@ class TypingTest(Tk):
         buttons_style = ttk.Style()
         buttons_style.theme_use("default")
         buttons_style.configure("Buttons.TButton",
-                                background="#222831",
-                                foreground="#00ADB5",
-                                font=font_for_the_buttons,
-                                width=10,
-                                borderwidth=1,
-                                focusthickness=3, )
+        background="#686868",
+        foreground="#FFC300",
+        font=font_for_the_buttons,
+        width=10,
+        borderwidth=1,
+        focusthickness=3, )
 
-        mainframe_style = ttk.Style()
-        mainframe_style.configure("MainFrame.TFrame", background="#222831")
+        mainframe_style =ttk.Style()
+        mainframe_style.configure("MainFrame.TFrame", background="#313131")
 
-        self.medium_label_style = ttk.Style()
-        self.medium_label_style.configure("Labels.TLabel", background="#222831", foreground="#00ADB5",
+        self.medium_label_style=ttk.Style()
+        self.medium_label_style.configure("Labels.TLabel", background="#313131", foreground="#FFC300",
                                           font=("Arial", 14))
 
         # Lag main frame til vindu
@@ -201,30 +207,30 @@ class TypingTest(Tk):
         start_button.grid(column=0, row=3, padx=10, pady=10)
 
         exit_button = ttk.Button(self.medium_mainframe, text="Exit", padding=1,
-                                 command=lambda: self.close_window(index),
-                                 style="Buttons.TButton")
+     command=lambda: self.close_window(index),
+     style="Buttons.TButton")
         exit_button.grid(column=1, row=3, padx=10, pady=10)
 
         # entries
         font_for_the_entry = Font(family="Arial", size=14)
-        self.medium_text_entry = ttk.Entry(self.medium_mainframe, width=60, font=font_for_the_entry)
+        self.medium_text_entry=ttk.Entry(self.medium_mainframe, width=60, font=font_for_the_entry)
         self.medium_text_entry.grid(column=0, row=1, padx=20, pady=20, columnspan=2)
 
-        # etiketter
+        #etiketter
         self.medium_rules_label = ttk.Label(self.medium_mainframe,
                                             text="Press Start to Begin the Test. Press Enter to Complete It.",
                                             style="Labels.TLabel")
         self.medium_rules_label.grid(column=0, row=2, padx=10, pady=10, columnspan=2)
 
-        self.medium_sentence_label = ttk.Label(self.medium_mainframe, text="Your Test Sentence Will be Here",
+        self.medium_sentence_label = ttk.Label(self.medium_mainframe, text="GorillaType",
                                                style="Labels.TLabel")
         self.medium_sentence_label.grid(column=0, row=0, padx=10, pady=20, columnspan=2)
 
     def main(self, index):
         """
-        Main funksjon til Typing appen. Her starter og slutter testen.
+        Main funksjon til Typing appen.
         """
-        # Sjekk index, for å avgjoøre hvilken test som skal startes
+        #Sjekk index, for å avgjoøre hvilken test som skal startes
         if index == 0:
             # tøm text entry
             self.easy_text_entry.delete(0, END)
@@ -238,6 +244,8 @@ class TypingTest(Tk):
                 random_sentence = random.choice(sentences)
 
             # start timeren
+
+
             self.start_time = time.time()
 
             # display settningen på label
@@ -247,17 +255,17 @@ class TypingTest(Tk):
 
             # check if the Enter key was pressed, if it was than we need to calculate the results
             self.easy_window.bind("<Return>",
-                                  lambda event, sentence=random_sentence, id_index=index: self.display_results(event,
-                                                                                                               sentence,
-                                                                                                               index))
+      lambda event, sentence=random_sentence, id_index=index: self.display_results(event,
+                                                                                   sentence,
+                                                                                   index))
         elif index == 1:
-            # tøm text entry
+            #tøm text entry
             self.medium_text_entry.delete(0, END)
 
             # hent random settning fra data/medium_mode.txt
             with open("data/medium_mode.txt", "r", encoding="utf-8") as medium_file:
                 # read filen
-                sentences = medium_file.read().split("\n")
+                sentences =medium_file.read().split("\n")
 
                 # hent en random settning
                 random_sentence = random.choice(sentences)
@@ -272,14 +280,14 @@ class TypingTest(Tk):
 
             # sjekk om Enter key ble trykket, hvis den ble kalkuler resultatet.
             self.medium_window.bind("<Return>",
-                                    lambda event, sentence=random_sentence, id_index=index: self.display_results(event,
-                                                                                                                 sentence,
-                                                                                                                 index))
+                        lambda event, sentence=random_sentence, id_index=index: self.display_results(event,
+                                                                                                     sentence,
+                                                                                                     index))
 
             # Hent random settning fra/easy_mode.txt
             with open("data/hard_mode.txt", "r", encoding="utf-8") as hard_file:
-                # read the file
-                sentences = hard_file.read().split("\n")
+                #read
+                sentences=hard_file.read().split("\n")
 
                 # Hent random settning
                 random_sentence = random.choice(sentences)
@@ -303,7 +311,7 @@ class TypingTest(Tk):
         else:
             user_input = self.hard_text_entry.get()
 
-        # kalkuler accuracy
+        #kalkuler accuracy
         count = 0
         for i, char in enumerate(sentence):
             try:
@@ -314,6 +322,7 @@ class TypingTest(Tk):
         self.accuracy = count / len(user_input) * 100
 
         # Kalkuler wpm
+
         self.wpm = len(user_input) * 60 / (5 * self.total_time)
 
         # sjekk hvilken index overført til metoden for å identifisere hvilken modus av testen som blir tatt.
@@ -331,6 +340,7 @@ class TypingTest(Tk):
                                                 text=f"Time:{round(self.total_time)} seconds Accuracy:{round(self.accuracy)}% Wpm:{round(self.wpm)}",
                                                 style="Labels.TLabel")
             self.medium_rules_label.grid(column=0, row=2, padx=10, pady=10, columnspan=2)
+
 
     def close_window(self, index):
         """

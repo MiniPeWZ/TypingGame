@@ -10,8 +10,9 @@ import random
 def get_random_words() -> list:
     """
     Denne funksjonen sender en GET request til wordnik API for få en liste med tilfeldige ord
-    :return: query of random words
+    :return: query med tilfeldige ord
     """
+
     # parametere for requesten
     dotenv.load_dotenv("C://EnvironmentalVariables//.env")
     parameters = {
@@ -23,7 +24,8 @@ def get_random_words() -> list:
     }
 
     # send en GET request
-    response = requests.get("https://api.wordnik.com/v4/words.json/randomWords", params=parameters)
+
+    response=requests.get("https://api.wordnik.com/v4/words.json/randomWords", params=parameters)
     response.raise_for_status()
 
     # returner dataen som en liste av ord
@@ -35,7 +37,6 @@ def write_data_to_easy_mode_txt(data: list) -> None:
     """
     Denn funksjonen tar dataen fra API-et of skriver det til easy_mode.txt
     :param data: liste av ord som må skrives til filen
-    :return: None
     """
     # lag tilfeldige settninger med ordene
     sentences = [" ".join(random.sample(data, 7)) for i in range(30)]

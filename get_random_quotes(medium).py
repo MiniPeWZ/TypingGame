@@ -10,12 +10,13 @@ def get_random_quotes() -> list:
     :return: json, som inneholder alle quotes
     """
     # parametere for request
-    parameters = {
+    parameters={
         "page": 1,
         "limit": 150
     }
 
     # gjør en GET request
+
     response = requests.get(url="https://api.quotable.io/quotes", params=parameters)
     response.raise_for_status()
 
@@ -27,8 +28,7 @@ def get_random_quotes() -> list:
 def write_data_to_medium_mode_txt(data: list) -> None:
     """
     Denne funksjonen tar dataen fra API-et of skriver det til medium_mode.txt
-    :param data: tilfeldige quotes som vi fikk fra API kallet
-    :return: None
+    :param data: tilfeldige quotes fra API kallet
     """
     # åpne filen for å skrive data i den
     with open("data/medium_mode.txt", "a", encoding="utf-8") as file:
